@@ -115,7 +115,8 @@ module Fluent
     def get_events(log_stream_name)
       request = {
         log_group_name: @log_group_name,
-        log_stream_name: log_stream_name
+        log_stream_name: log_stream_name,
+	limit: 1
       }
       request[:next_token] = next_token if next_token
       response = @logs.get_log_events(request)
